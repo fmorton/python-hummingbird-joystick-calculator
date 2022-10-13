@@ -47,9 +47,9 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/hummingbird-joystick-calculator
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/fmorton/python-hummingbird-joystick-calculator/v0.0.4.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/fmorton/python-hummingbird-joystick-calculator/v0.0.5.svg
     :alt: Commits since latest release
-    :target: https://github.com/fmorton/python-hummingbird-joystick-calculator/compare/v0.0.4...main
+    :target: https://github.com/fmorton/python-hummingbird-joystick-calculator/compare/v0.0.5...main
 
 
 
