@@ -5,6 +5,24 @@ class HummingbirdJoystickCalculator:
     BACKWARD_TURN_MULTIPLIER = 0.33
     BACKWARD_TURN_MULTIPLIER = 0.75
 
+    def straight_back(self, speed, x, y):
+        return(-speed, -speed)
+
+    def straight_forward(self, speed, x, y):
+        return(speed, speed)
+
+    def left_back(self, speed, x, y):
+        return(-speed * HummingbirdJoystickCalculator.BACKWARD_TURN_MULTIPLIER, -speed)
+
+    def left_forward(self, speed, x, y):
+        return(-speed * HummingbirdJoystickCalculator.FORWARD_TURN_MULTIPLIER, speed)
+
+    def right_back(self, speed, x, y):
+        return(-speed, -speed * HummingbirdJoystickCalculator.BACKWARD_TURN_MULTIPLIER)
+
+    def right_forward(self, speed, x, y):
+        return(speed, -speed * HummingbirdJoystickCalculator.FORWARD_TURN_MULTIPLIER)
+
     def speeds(self, x, y):
         speed = max(abs(x), abs(y))
 
@@ -14,23 +32,23 @@ class HummingbirdJoystickCalculator:
         if abs(x) <= HummingbirdJoystickCalculator.STRAIGHT_WINDOW_SIZE:
             if y > 0:
                 # straight forward
-                return(speed, speed)
+                return(self.straight_forward(speed, x, y))
             else:
-                # straight backwards
-                return(-speed, -speed)
+                # straight back
+                return(self.straight_back(speed, x, y))
         elif x < 0:
             if y < 0:
-                # left backwards
-                return(-speed * HummingbirdJoystickCalculator.BACKWARD_TURN_MULTIPLIER, -speed)
+                # left back
+                return(self.left_back(speed, x, y))
             else:
                 # left forward
-                return(-speed * HummingbirdJoystickCalculator.FORWARD_TURN_MULTIPLIER, speed)
+                return(self.left_forward(speed, x, y))
         else:
             if y < 0:
-                # right backwards
-                return(-speed, -speed * HummingbirdJoystickCalculator.BACKWARD_TURN_MULTIPLIER)
+                # right back
+                return(self.right_back(speed, x, y))
             else:
                 # right forward
-                return(speed, -speed * HummingbirdJoystickCalculator.FORWARD_TURN_MULTIPLIER)
+                return(self.right_forward(speed, x, y))
 
         return(0, 0)

@@ -20,7 +20,7 @@ def read(*names, **kwargs):
 
 setup(
     name='hummingbird-joystick-calculator',
-    version='0.0.5',
+    version='0.0.6',
     license='MIT',
     description='Calculator for the hummingbird_joystick package converting xy coordinates from the joystick to left/right motor speeds.',
     long_description='{}\n{}'.format(
